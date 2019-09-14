@@ -10,12 +10,100 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel="stylesheet" href='assets/style.css'>
-        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+        <!-- <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script> -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     </head>
 
     <body>
+        <!-- Navbar -materialize -->
+        <nav class="z-depth-0 grey lighten-4">
+                <div class="nav-wrapper container">
+                    <!-- <a href="#" class="brand-logo">
+                    <img src="img/logo.svg" style="width: 180px; margin-top: 10px;">
+                    </a> -->
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li class="logged-in">
+                        <a href="#" class="grey-text modal-trigger" data-target="modal-myList">My List</a>
+                        </li>
+                        <li class="logged-in">
+                        <a href="#" class="grey-text modal-trigger" data-target="modal-quickAdd">Quick Add</a>
+                        </li>
+                        <li class="logged-out">
+                        <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+                        </li>
+                        <li class="logged-in">
+                        <a href="#" class="grey-text" id="logout">Logout</a>
+                        </li>
+                        <li class="logged-out">
+                        <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
+
+        <!-- sign up modal - materialize -->
+        <div id="modal-signup" class="modal">
+            <div class="modal-content">
+                <h4>Sign up</h4><br/>
+                <form id="signup-form">
+                <div class="input-field">
+                    <input type="email" id="signup-email" required />
+                    <label for="signup-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="signup-password" required />
+                    <label for="signup-password">Choose password</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- log in modal - materialize -->
+        <div id="modal-login" class="modal">
+            <div class="modal-content">
+                <h4>Log In</h4><br/>
+                <form id="login-form">
+                <div class="input-field">
+                    <input type="email" id="login-email" required />
+                    <label for="login-email">Email Address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="login-password" required />
+                    <label for="login-password">Enter Password</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Log In</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- account user info modal -->
+        <div id="modal-myList" class="modal">
+            <div class="modal-content center-aling">
+                <h4>My List</h4><br/>
+                <div class="shoppingList"></div>
+            </div>
+        </div>
+
+        <!-- log in modal - materialize -->
+        <div id="modal-quickAdd" class="modal">
+            <div class="modal-content">
+                <h4>Extras</h4><br/>
+                <form id="create-form">
+                <!-- <div class="input-field">
+                    <input type="text" id="snackDrinks" required />
+                    <label for="snackDrinks">Extras</label>
+                </div> -->
+                <div class="input-field">
+                    <textarea type="content" class="materialize-textarea" required></textarea>
+                    <label for="content">Snacks and Drinks Etc.</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Add</button>
+                </form>
+            </div>
+        </div>
+
         <div id="banner" class='col m12'>
             <span style='color: green'>Reci</span><span style='color:greenyellow'>Pad</span>
         </div>
@@ -70,12 +158,46 @@
                 </div>
             </div>
 
+            <!-- search result list of recipes  -->
             <div id='search-output'>
                 <div class='row'></div>
                 <div id='recipe-list' class = 'col m12'></div>
             </div>
         </div>
+
+        <!-- test editable list -->
+        <div class="container" style="margin-top: 40px;">
+            <ul class="collapsible z-depth-0 quickAdds" style="border: none;">
+                
+            </ul>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+
+        
+        <script>
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+            apiKey: "AIzaSyDDHgpEGu-Ya6Umwr_RwPPcVZsj_5oZAyc",
+            authDomain: "recipad-user-accounts.firebaseapp.com",
+            databaseURL: "https://recipad-user-accounts.firebaseio.com",
+            projectId: "recipad-user-accounts",
+            appId: "1:143353426168:web:b630bc12ed053bce04cb0d"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+
+          //make auth and firestore references
+          const auth = firebase.auth();
+          const db = firebase.firestore();
+
+        //   db.settings({ timestampsInSnapshots: true });
+        </script>
+
         <script src="assets/script.js"></script>
+        <script src="assets/auth.js"></script>
     </body>
     
 
