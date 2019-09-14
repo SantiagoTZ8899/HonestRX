@@ -17,30 +17,34 @@
 
     <body>
         <!-- Navbar -materialize -->
-        <nav class="z-depth-0 grey lighten-4">
-                <div class="nav-wrapper container">
-                    <!-- <a href="#" class="brand-logo">
-                    <img src="img/logo.svg" style="width: 180px; margin-top: 10px;">
-                    </a> -->
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li class="logged-in">
-                        <a href="#" class="grey-text modal-trigger" data-target="modal-myList">My List</a>
-                        </li>
-                        <li class="logged-in">
-                        <a href="#" class="grey-text modal-trigger" data-target="modal-quickAdd">Quick Add</a>
-                        </li>
-                        <li class="logged-out">
-                        <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
-                        </li>
-                        <li class="logged-in">
-                        <a href="#" class="grey-text" id="logout">Logout</a>
-                        </li>
-                        <li class="logged-out">
-                        <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
-                        </li>
-                    </ul>
-                </div>
-        </nav>
+         <div class="row bannerformat">
+                <div class="col m6 s12 banner"><span style='color: green'>Reci</span><span style='color:greenyellow'>Pad</span></div>
+                <div class="col m6 s12 navbar">
+                    <nav class="z-depth-0 white lighten-4">
+            
+                        <div class="nav-wrapper container">
+                            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                                <li class="logged-in">
+                                <a href="#" class="grey-text modal-trigger" data-target="modal-myList">My List</a>
+                                </li>
+                                <li class="logged-in">
+                                <a href="#" class="grey-text modal-trigger" data-target="modal-quickAdd">Quick Add</a>
+                                </li>
+                                <li class="logged-out">
+                                <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+                                </li>
+                                <li class="logged-in">
+                                <a href="#" class="grey-text" id="logout">Logout</a>
+                                </li>
+                                <li class="logged-out">
+                                <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav> 
+                </div> 
+        </div>
+        
 
         <!-- sign up modal - materialize -->
         <div id="modal-signup" class="modal">
@@ -91,10 +95,6 @@
             <div class="modal-content">
                 <h4>Extras</h4><br/>
                 <form id="create-form">
-                <!-- <div class="input-field">
-                    <input type="text" id="snackDrinks" required />
-                    <label for="snackDrinks">Extras</label>
-                </div> -->
                 <div class="input-field">
                     <textarea type="content" class="materialize-textarea" required></textarea>
                     <label for="content">Snacks and Drinks Etc.</label>
@@ -104,9 +104,9 @@
             </div>
         </div>
 
-        <div id="banner" class='col m12'>
+        <!-- <div id="banner" class='col m12'>
             <span style='color: green'>Reci</span><span style='color:greenyellow'>Pad</span>
-        </div>
+        </div> -->
         <div id="container" class="container col m8 offset-m2">
             <div id='description'>ReciPad can look up a recipe for you, and then adds the ingredients to a master shopping list so you never have to waste time at the grocery store trying to remember what you need!</div>
             <form action="#">
@@ -168,7 +168,7 @@
         <!-- test editable list -->
         <div class="container" style="margin-top: 40px;">
             <ul class="collapsible z-depth-0 quickAdds" style="border: none;">
-                
+
             </ul>
         </div>
 
