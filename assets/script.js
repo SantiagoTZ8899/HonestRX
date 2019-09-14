@@ -184,3 +184,36 @@ $(document).on('click','#showSavedRecipesButton', showSavedRecipes);
 $(document).on('click','#showShoppingList', generateGroceryList);
 // $(document).on('click','#generateListButton', getRecipeInformation);
 
+const quickLists = document.querySelector('.quickAdds');
+
+// make quick additions to non-ingredient list
+const extraAdds = (data) => {
+
+    if (data.length) {
+        let html = '';
+            data.forEach(doc => {
+                const extras = doc.data();
+                console.log(extras);
+                const li = `
+                <li>
+                <div class="color white"> ${extras.title} </div>
+                <div class="color white"> ${extras.content} </div>
+                </li>
+                `;
+                html += li
+            })
+        quickLists.innerHTML = html; 
+    } else {
+        quickLists.innerHTML = '<h5 class="center-align color white">Log In to view your Upcoming Meals and Shopping List</h5>'
+    }
+
+}
+
+// materialize components
+document.addEventListener('DOMContentLoaded', function() {
+    let modals = document.querySelectorAll('.modal');
+    M.Modal.init(modals);
+    let items = document.querySelectorAll('.collapsible');
+    M.Collapsible.init(items);
+
+  });
