@@ -16,34 +16,48 @@
     </head>
 
     <body>
-        <!-- Navbar -materialize -->
-         <div class="row bannerformat">
-                <div class="col m6 s12 banner"><span style='color: green'>Reci</span><span style='color:greenyellow'>Pad</span></div>
-                <div class="col m6 s12 navbar">
-                    <nav class="z-depth-0 white lighten-4">
+
+        <nav>
+                <div class="nav-wrapper">
+                  <a href="#!" class="brand-logo"><span style='color: green' style='font-weight: bold'>Reci</span><span style='color:greenyellow'>Pad</span></a>
+                  <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons green-text">menu</i></a>
+                  <ul class="right hide-on-med-and-down">
+                    <li class="logged-in" style="display: none;" >
+                        <a href="#" class="green-text modal-trigger" data-target="modal-myList">My List</a>
+                    </li>
+                    <li class="logged-in" style="display: none;" >
+                        <a href="#" class="green-text modal-trigger" data-target="modal-quickAdd">Quick Add</a>
+                    </li>
+                    <li class="logged-out"  style="display: none;">
+                        <a href="#" class="green-text modal-trigger" data-target="modal-login">Login</a>
+                    </li>
+                    <li class="logged-in"  style="display: none;">
+                        <a href="#" class="green-text" id="logout">Logout</a>
+                    </li>
+                    <li class="logged-out"  style="display: none;">
+                        <a href="#" class="green-text modal-trigger" data-target="modal-signup">Sign up</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
             
-                        <div class="nav-wrapper container">
-                            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                                <li class="logged-in">
-                                <a href="#" class="grey-text modal-trigger" data-target="modal-myList">My List</a>
-                                </li>
-                                <li class="logged-in">
-                                <a href="#" class="grey-text modal-trigger" data-target="modal-quickAdd">Quick Add</a>
-                                </li>
-                                <li class="logged-out">
-                                <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
-                                </li>
-                                <li class="logged-in">
-                                <a href="#" class="grey-text" id="logout">Logout</a>
-                                </li>
-                                <li class="logged-out">
-                                <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav> 
-                </div> 
-        </div>
+              <ul class="sidenav" id="mobile-demo">
+                    <li class="logged-in" style="display: none;">
+                    <a href="#" class="green-text modal-trigger" data-target="modal-myList">My List</a>
+                    </li>
+                    <li class="logged-in" style="display: none;">
+                    <a href="#" class="green-text modal-trigger" data-target="modal-quickAdd">Quick Add</a>
+                    </li>
+                    <li class="logged-out"  style="display: none;">
+                    <a href="#" class="green-text modal-trigger" data-target="modal-login">Login</a>
+                    </li>
+                    <li class="logged-in" style="display: none;">
+                    <a href="#" class="green-text" id="logout">Logout</a>
+                    </li>
+                    <li class="logged-out"  style="display: none;">
+                    <a href="#" class="green-text modal-trigger" data-target="modal-signup">Sign up</a>
+                    </li>
+               </ul>
         
 
         <!-- sign up modal - materialize -->
@@ -86,9 +100,9 @@
         <div id="modal-myList" class="modal">
             <div class="modal-content center-aling">
                 <h4>My List</h4><br/>
-                <div class="shoppingList"></div>
+                <h5 id="shoppingList"></h5>
             </div>
-        </div>
+        </div>            
 
         <!-- log in modal - materialize -->
         <div id="modal-quickAdd" class="modal">
@@ -96,7 +110,7 @@
                 <h4>Extras</h4><br/>
                 <form id="create-form">
                 <div class="input-field">
-                    <textarea type="content" class="materialize-textarea" required></textarea>
+                    <textarea type="content" class="materialize-textarea" id="addItem-input" required></textarea>
                     <label for="content">Snacks and Drinks Etc.</label>
                 </div>
                 <button class="btn yellow darken-2 z-depth-0">Add</button>
@@ -104,10 +118,7 @@
             </div>
         </div>
 
-        <!-- <div id="banner" class='col m12'>
-            <span style='color: green'>Reci</span><span style='color:greenyellow'>Pad</span>
-        </div> -->
-        <div id="container" class="container col m8 offset-m2">
+        <div id="container" class="container col s12 m12 l8 offset-l2">
             <div id='description'>ReciPad can look up a recipe for you, and then adds the ingredients to a master shopping list so you never have to waste time at the grocery store trying to remember what you need!</div>
             <form action="#">
                 <p>
@@ -123,19 +134,20 @@
                     </label>
                 </p>
 
-                <div class='input-field col m6'>
+                <p>Separate multiple items in your input below with a coma.</p>
+                <div class='input-field col m12'>
                     <input placeholder="peanuts" id="ingredientExclusion" type="text" class="validate">
-                    <label id="ingredientExclusionLabel" for="ingredientExclusion">Exclude recipes with the following ingredients (separate multiple ingredients with a coma):</label>    
+                    <label id="ingredientExclusionLabel" for="ingredientExclusion">Ingredients to Exclude:</label>    
                 </div>
 
-                <div class='input-field col m6'>
+                <div class='input-field col m12'>
                     <input placeholder="Chinese" id="cuisine-input" type="text" class="validate">
-                    <label id="cuisine-inputLabel" for="cuisine-input">Cuisines? (separate multiple ingredients with a coma)</label>    
+                    <label id="cuisine-inputLabel" for="cuisine-input">Cuisines?</label>    
                 </div>
 
-                <div class='input-field col m6'>
+                <div class='input-field col m12'>
                     <input placeholder="Lasagna" id="searchBar" type="text" class="validate">
-                    <label id="searchBarLabel" for="searchBar">Search for a particular recipe? (Requiered)</label>    
+                    <label id="searchBarLabel" for="searchBar">Recipe Name (Requiered):</label>    
                 </div>
             </form>
 
@@ -145,7 +157,7 @@
             <div id='confirmation-section' class='row'>
                 <div id='confirmRecipe' class='col m12'>Add recipes first, then select the following options:</div>
                 <div id='saveRecipesButton' class='choice-btn'>
-                        <a class="waves-effect waves-light btn" style='background-color: green'>Save Recipes</a>
+                        <a class="waves-effect waves-light btn" style='background-color: green'>Save Recipe Details</a>
                 </div>
                 <div id='showSavedRecipesButton' class='choice-btn'>
                         <a class="waves-effect waves-light btn" style='background-color: green'>Show Saved Recipes</a>
@@ -155,6 +167,9 @@
                 </div>
                 <div id='clearButton' class='choice-btn'>
                         <a class="waves-effect waves-light btn" style='background-color: green'>Clear Saved Recipes</a>
+                </div>
+                <div id='sendListToPhone' class='choice-btn'>
+                    <a class="waves-effect waves-light btn" style='background-color: green'>Send Shopping List to Phone</a>
                 </div>
             </div>
 
@@ -180,24 +195,27 @@
         <script>
           // Your web app's Firebase configuration
           var firebaseConfig = {
-            apiKey: "AIzaSyDDHgpEGu-Ya6Umwr_RwPPcVZsj_5oZAyc",
-            authDomain: "recipad-user-accounts.firebaseapp.com",
-            databaseURL: "https://recipad-user-accounts.firebaseio.com",
-            projectId: "recipad-user-accounts",
-            appId: "1:143353426168:web:b630bc12ed053bce04cb0d"
-          };
+                apiKey: "AIzaSyAg1Jfe5UX_hieHr8S2rRjwVMEd-AuxWng",
+                authDomain: "recipad-ddf61.firebaseapp.com",
+                databaseURL: "https://recipad-ddf61.firebaseio.com",
+                projectId: "recipad-ddf61",
+                storageBucket: "recipad-ddf61.appspot.com",
+                messagingSenderId: "633336468983",
+                appId: "1:633336468983:web:9b09e18f4668e9c2344af2"
+         };
           // Initialize Firebase
           firebase.initializeApp(firebaseConfig);
 
           //make auth and firestore references
-          const auth = firebase.auth();
-          const db = firebase.firestore();
+          let auth = firebase.auth();
+          let db = firebase.firestore();
 
         //   db.settings({ timestampsInSnapshots: true });
         </script>
-
-        <script src="assets/script.js"></script>
         <script src="assets/auth.js"></script>
+        <script src="assets/script.js"></script>
+        <!-- <script src="assets/sms.js"></script> -->
+ 
     </body>
     
 
